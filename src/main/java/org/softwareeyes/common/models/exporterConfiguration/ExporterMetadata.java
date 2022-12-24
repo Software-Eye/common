@@ -1,4 +1,4 @@
-package org.softwareeyes.common.exporterConfiguration;
+package org.softwareeyes.common.models.exporterConfiguration;
 
 public class ExporterMetadata {
     private String type;
