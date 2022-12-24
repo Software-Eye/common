@@ -1,6 +1,6 @@
 package org.softwareeyes.common.exporterConfiguration;
 
-import org.softwareeyes.common.models.exporterConfiguration.exporterTopology.ExporterTopology;
+import org.softwareeyes.common.exporterConfiguration.exporterTopology.ExporterTopology;
 
 public class ExporterConfiguration {
     private ExporterMetadata metadata;

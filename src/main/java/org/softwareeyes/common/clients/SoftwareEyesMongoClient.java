@@ -12,7 +12,7 @@ import java.util.Map;
 public class SoftwareEyesMongoClient implements AutoCloseable {
     private MongoClient mongoClient;
     private String databaseName;
-    private String collectionName;
+    private String collectionName ;
 
     public SoftwareEyesMongoClient(String connectionString, String databaseName, String collectionName){
         MongoClientURI uri = new MongoClientURI(connectionString);
@@ -33,5 +33,13 @@ public class SoftwareEyesMongoClient implements AutoCloseable {
     @Override
     public void close() throws Exception {
         mongoClient.close();
+    }
+
+    public String getCollectionName() {
+        return collectionName;
+    }
+
+    public void setCollectionName(String collectionName) {
+        this.collectionName = collectionName;
     }
 }
