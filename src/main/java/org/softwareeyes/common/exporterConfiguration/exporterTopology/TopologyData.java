@@ -1,4 +1,4 @@
-package org.softwareeyes.common.models.exporterConfiguration.exporterTopology;
+package org.softwareeyes.common.exporterConfiguration.exporterTopology;
 
 public class TopologyData {
     private String label;
