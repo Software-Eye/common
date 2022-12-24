@@ -1,4 +1,4 @@
-package org.softwareeyes.common.models.exporterConfiguration;
+package org.softwareeyes.common.exporterConfiguration;
 
 import org.softwareeyes.common.models.exporterConfiguration.exporterTopology.ExporterTopology;
 
