@@ -17,4 +17,6 @@ public abstract class ExporterConfigurationParametersBase {
     public void setSampleRate(int sampleRate) {
         SampleRate = sampleRate;
     }
+
+    public abstract String toTerraformEnvironmentConfiguration();
 }
