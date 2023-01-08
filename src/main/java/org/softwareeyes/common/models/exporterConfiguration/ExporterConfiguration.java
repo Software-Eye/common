@@ -1,19 +1,20 @@
 package org.softwareeyes.common.models.exporterConfiguration;
 
-import org.softwareeyes.common.exporterConfiguration.exporterTopology.ExporterTopology;
+import org.softwareeyes.common.models.exporterConfiguration.exporterTopology.ExporterTopology;
+
 
 public class ExporterConfiguration {
     private ExporterMetadata metadata;
-    private ExporterConfigurationParametersBase exporterConfiguration;
+    private ExporterConfigurationParametersBase exporterConfigurationParameters;
     private ExporterTopology topology;
     private String _id;
 
     public ExporterConfiguration() {
     }
 
-    public ExporterConfiguration(ExporterMetadata metadata, ExporterConfigurationParametersBase exporterConfiguration, ExporterTopology topology, String id) {
+    public ExporterConfiguration(ExporterMetadata metadata, ExporterConfigurationParametersBase exporterConfigurationParameters, ExporterTopology topology, String id) {
         this.metadata = metadata;
-        this.exporterConfiguration = exporterConfiguration;
+        this.exporterConfigurationParameters = exporterConfigurationParameters;
         this.topology = topology;
         this._id = id;
     }
@@ -26,12 +27,12 @@ public class ExporterConfiguration {
         this.metadata = metadata;
     }
 
-    public ExporterConfigurationParametersBase getExporterConfiguration() {
-        return exporterConfiguration;
+    public ExporterConfigurationParametersBase getExporterConfigurationParameters() {
+        return exporterConfigurationParameters;
     }
 
-    public void setExporterConfiguration(ExporterConfigurationParametersBase exporterConfiguration) {
-        this.exporterConfiguration = exporterConfiguration;
+    public void setExporterConfigurationParameters(ExporterConfigurationParametersBase exporterConfigurationParameters) {
+        this.exporterConfigurationParameters = exporterConfigurationParameters;
     }
 
     public ExporterTopology getTopology() {
