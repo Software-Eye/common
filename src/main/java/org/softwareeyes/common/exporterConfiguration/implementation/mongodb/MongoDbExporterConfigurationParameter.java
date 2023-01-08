@@ -11,6 +11,9 @@ public class MongoDbExporterConfigurationParameter extends ExporterConfiguration
         this.connectionString = connectionString;
     }
 
+    public MongoDbExporterConfigurationParameter() {
+    }
+
     public String getConnectionString() {
         return connectionString;
     }
