@@ -14,7 +14,7 @@ public class Alert {
 
     public Alert(String status, Map<String, String> labels, Map<String, String> annotations, LocalDateTime startTime, LocalDateTime endTime, String generatorURL, String fingerprint){
         this.status = status;
-        this. labels = labels;
+        this.labels = labels;
         this.annotations = annotations;
         this.startTime = startTime;
         this.endTime = endTime;
