@@ -1,7 +1,6 @@
 package org.softwareeyes.common.clients;
 
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.MongoClient;
 import com.mongodb.MongoClientOptions;
 import com.mongodb.MongoClientSettings;
@@ -9,9 +8,18 @@ import com.mongodb.MongoClientURI;
 import com.mongodb.client.MongoCollection;
 import org.bson.Document;
 import org.bson.codecs.configuration.CodecRegistry;
+import org.bson.codecs.pojo.ClassModel;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.softwareeyes.common.exporterConfiguration.implementation.mongodb.MongoDbExporterConfigurationParameter;
+import org.softwareeyes.common.models.exporterConfiguration.ExporterConfiguration;
+import org.softwareeyes.common.models.exporterConfiguration.ExporterMetadata;
+import org.softwareeyes.common.models.exporterConfiguration.exporterTopology.ExporterTopology;
+import org.softwareeyes.common.models.exporterConfiguration.exporterTopology.TopologyData;
+import org.softwareeyes.common.models.exporterConfiguration.exporterTopology.TopologyPosition;
 
-import java.util.Map;
+import javax.print.Doc;
+
+import java.util.UUID;
 
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
@@ -29,12 +37,9 @@ public class SoftwareEyesMongoClient implements AutoCloseable {
         this.mongoClient = new MongoClient(uri);
     }
 
-    public String getCollectionName() {
-        return collectionName;
-    }
-
-    public void setCollectionName(String collectionName) {
-        this.collectionName = collectionName;
+    private CodecRegistry buildPojoCodecRegistry(){
+        return fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().register("org.softwareeyes.common").automatic(true).build()));
     }
 
     public <TDocument> MongoCollection<TDocument> getQuerier(Class<TDocument> documentClass){
