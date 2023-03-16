@@ -16,21 +16,19 @@ import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 public class SoftwareEyesMongoClient implements AutoCloseable {
     private final MongoClient mongoClient;
     private final String databaseName;
-    private String collectionName ;
 
-    public SoftwareEyesMongoClient(String connectionString, String databaseName, String collectionName){
+    public SoftwareEyesMongoClient(String connectionString, String databaseName){
         MongoClientOptions.Builder clientOptions = MongoClientOptions.builder().codecRegistry(buildPojoCodecRegistry());
         MongoClientURI uri = new MongoClientURI(connectionString, clientOptions);
         this.databaseName = databaseName;
-        this.collectionName = collectionName;
         this.mongoClient = new MongoClient(uri);
     }
 
-    public <TDocument> MongoCollection<TDocument> getQuerier(Class<TDocument> documentClass){
+    public <TDocument> MongoCollection<TDocument> getQuerier(Class<TDocument> documentClass, String collectionName){
         return mongoClient.getDatabase(databaseName).getCollection(collectionName, documentClass);
     }
 
-    public MongoCollection<Document> getQuerier(){
+    public MongoCollection<Document> getQuerier(String collectionName){
         return mongoClient.getDatabase(databaseName).getCollection(collectionName);
     }
 
