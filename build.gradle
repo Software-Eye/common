@@ -1,5 +1,5 @@
 plugins {
-    id 'java'
+    id 'java-library'
     id 'org.springframework.boot' version '3.0.1'
     id 'io.spring.dependency-management' version '1.1.0'
 }
@@ -14,13 +14,13 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
-    implementation 'com.hashicorp:cdktf-provider-aws:12.0.9'
-    implementation 'com.hashicorp:cdktf:0.15.5'
+    implementation 'software.amazon.awssdk:lambda:2.20.26'
+    implementation 'software.amazon.awssdk:codegen:2.20.26'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.mongodb:mongo-java-driver:3.12.2'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.0'
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+bootJar{
+    enabled = false
 }
